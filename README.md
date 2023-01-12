@@ -15,3 +15,11 @@ Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-at
 # Requirements
 
 use of pygbag  https://pypi.org/project/pygbag
+
+# Sounds
+Sounds from https://freesound.org/
+234802__richerlandtv__gametinywarp
+159725__qubodup__fire-magic-spell-sound-effect
+364929__jofae__game-die
+82328__alienxxx__fairyland-120
+545909__sergequadrado__heroic-intro

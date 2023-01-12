@@ -1,13 +1,20 @@
 import pygame
 import random
 import asyncio
+import os
+import sys
 
 pygame.init()
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath()))
+    return os.path.join(base_path, relative_path)
 
 WINDOW_WIDTH = 950
 WINDOW_HEIGHT = 633
 display_surface = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))
-pygame.display.set_caption("Catch the Penguin!")
+pygame.display.set_caption("Catch the Lion!")
 
 #Set tick and FPS
 FPS = 60
@@ -34,11 +41,18 @@ WISTERIA = (151, 81, 169)
 DARKWISTERIA = (67, 41, 84)
 SANTAFE = (169, 107, 81)
 DARKSANTAFE = (80, 46, 39)
+print("Current directory: ")
+print(os.getcwd())
+print("Files: ")
+print(os.listdir(os.getcwd()))
+
+print("Files in Assets: ")
+print(os.listdir(f"{os.getcwd()}/Assets"))
 
 
 #Set fonts
-custom_font = pygame.font.Font("3.-catch_the_Lion\Assets\XmasLights.ttf", 64)
-snow_font = pygame.font.Font("3.-catch_the_Lion\Assets\DelightSnow.ttf", 32)
+custom_font = pygame.font.Font(r"Assets/XmasLights.ttf", 64)
+snow_font = pygame.font.Font("Assets/DelightSnow.ttf", 32)
 
 #Set text
 title_text = custom_font.render("Catch the Penguin!!", True,WISTERIA,DARKWISTERIA)
@@ -63,21 +77,21 @@ continue_rect = continue_text.get_rect()
 continue_rect.center = (WINDOW_WIDTH//2,WINDOW_HEIGHT//2 + 64)
 
 #Set sounds and music
-click_sound = pygame.mixer.Sound("3.-catch_the_Lion\Assets\click.wav")
+click_sound = pygame.mixer.Sound("Assets/click.wav")
 
-missed_sound = pygame.mixer.Sound("3.-catch_the_Lion\Assets\quick_missed.mp3")
+missed_sound = pygame.mixer.Sound("Assets/quick_missed.wav")
 missed_sound.set_volume(0.3)
 
-pygame.mixer.music.load("3.-catch_the_Lion\Assets\Background_music.mp3")
+pygame.mixer.music.load("Assets/Background_music.mp3")
 pygame.mixer.music.play(-1,0,0)
 pygame.mixer.music.set_volume(0.2)
 
 #Set images
-lion_image = pygame.image.load("3.-catch_the_Lion\Assets\Baby-Lion-Christmas_medium.png")
+lion_image = pygame.image.load("Assets/Baby-Lion-Christmas_medium.png")
 lion_rect = lion_image.get_rect()
 lion_rect.center = (WINDOW_WIDTH//2,WINDOW_HEIGHT//2)
 
-background_image = pygame.image.load("3.-catch_the_Lion\Assets\Background_small.png")
+background_image = pygame.image.load("Assets/Background_small.png")
 background_rect = background_image.get_rect()
 background_rect.center = (WINDOW_WIDTH//2,WINDOW_HEIGHT//2)
 
@@ -160,6 +174,7 @@ async def main():
                         lion_rect.center = (WINDOW_WIDTH//2,WINDOW_HEIGHT//2)
                         pygame.mixer.music.play(-1,0,0)
                         is_paused = False
+                await asyncio.sleep(0)
     
     
         pygame.display.update()
