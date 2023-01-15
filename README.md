@@ -23,3 +23,11 @@ Sounds from https://freesound.org/
 364929__jofae__game-die
 82328__alienxxx__fairyland-120
 545909__sergequadrado__heroic-intro
+
+Sea monsters Assault
+https://freesound.org/people/bongmoth/sounds/156565/
+
+Modified version of
+https://freesound.org/people/FiveBrosStopMosYT/sounds/539350/
+
+https://freesound.org/people/soneproject/sounds/346425/
